@@ -1,6 +1,12 @@
 /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: gray; /* Outside background color */
+    background-color: gray;
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,7 +16,7 @@ body {
 /* White div */
 .container {
     background-color: white;
-    width: 80%;
+    width: 90%;
     max-width: 1200px;
     padding: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 1);
@@ -18,19 +24,22 @@ body {
     margin-bottom: 20px;
 }
 
+/* Header */
 header {
     background-color: #ace1f9;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap; /* Allows stacking on smaller screens */
     padding-bottom: 10px;
     border-bottom: 3px solid gray;
 }
 
 /* Logo styles */
 .logo {
-    width: 200px;
+    width: 180px;
     height: auto;
+    margin: 10px;
 }
 
 /* Navigation styles */
@@ -39,6 +48,26 @@ header {
     padding: 0;
     display: flex;
     gap: 15px;
+}
+
+/* Ensures navigation stacks on smaller screens */
+@media (max-width: 768px) {
+    .topnav {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .topnav li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .topnav a {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+    }
 }
 
 .topnav li {
@@ -52,13 +81,7 @@ header {
     padding: 10px 15px;
 }
 
-.topnav a:hover {
-    background-color: #ddd;
-    border-radius: 5px;
-    border: 1px solid gray;
-}
-
-.topnav a.active {
+.topnav a:hover, .topnav a.active {
     background-color: #ddd;
     border-radius: 5px;
     border: 1px solid gray;
@@ -69,26 +92,29 @@ header {
     width: 100%;
     height: auto;
     margin-top: 20px;
+    display: block;
 }
 
 /* Attributes section styling */
 .attributes {
-    list-style: none; /* Removes default bullet points */
+    list-style: none;
     padding: 0;
     margin-top: 20px;
 }
 
+/* Adjust text and layout for mobile */
 .attributes > li {
     font-size: 1.2rem;
     font-weight: bold;
     color: #333;
-    background-color: #ace1f9; /* Light blue background */
+    background-color: #ace1f9;
     padding: 10px;
     border-left: 5px solid gray;
     margin-bottom: 10px;
     border-radius: 5px;
 }
 
+/* Sublist styles */
 .attributes ul {
     list-style: none;
     padding-left: 20px;
@@ -99,14 +125,14 @@ header {
     font-size: 1rem;
     font-weight: normal;
     color: black;
-    background-color: #f0f8ff; /* Light background for sub-items */
+    background-color: #f0f8ff;
     padding: 8px;
     margin-top: 5px;
     border-radius: 3px;
     border-left: 3px solid #666;
 }
 
-/* Service list styles */
+/* Services list */
 .service {
     list-style: none;
     padding-left: 20px;
@@ -118,31 +144,81 @@ header {
     background-color: rgb(161, 161, 161);
     padding: 10px;
     margin-top: 5px;
-    border-left: 4px solid #ace1f9; /* Blue accent */
+    border-left: 4px solid #ace1f9;
     border-radius: 5px;
     line-height: 1.5;
 }
 
 /* Contact Us Card */
 .contact_us {
-    background-color: #f8f9fa; /* Light gray background */
+    background-color: #f8f9fa;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     max-width: 600px;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid gray; /* Blue border */
+    border: 2px solid gray;
 }
 
+/* Contact card heading */
 .contact-card h3 {
     color: #333;
     font-size: 1.8rem;
     margin-bottom: 10px;
 }
 
+/* Contact card text */
 .contact-card p {
     font-size: 1rem;
     color: #555;
     line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    h2, p {
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .attributes li {
+        font-size: 1rem;
+    }
+
+    .contact_us {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 98%;
+    }
+
+    .logo {
+        width: 140px;
+    }
+
+    h2, p {
+        font-size: 0.9rem;
+    }
+
+    .attributes li {
+        font-size: 0.9rem;
+    }
 }
