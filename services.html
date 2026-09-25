@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunland Trucking LLC</title>
+    <title>Contact Us - Sunland Trucking LLC</title>
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -14,11 +14,12 @@
         <i class="fas fa-angle-up"></i>
     </div>
 
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="max-width">
             <div class="logo">
                 <a href="index.html">
-                    <img src="sunland_trucking_logo.png" alt="Sunland Trucking LLC Logo">
+                    <img src="sunland_trucking_logo.png" alt="Sunland Trucking LLC Logo. A circular logo depicting an image of a truck in the center of a sun with the words Sunland Trucking LLC under it.">
                 </a>
             </div>
             <ul class="menu">
@@ -27,8 +28,8 @@
                     <button onclick="setLanguage('es')">ES</button>
                 </div>
                 <li><a href="index.html" class="menu-btn" data-key="nav_home">Home</a></li>
-                <li><a href="services.html" class="menu-btn active" data-key="nav_services">Services</a></li>
-                <li><a href="contact-us.html" class="menu-btn" data-key="nav_contact">Contact Us</a></li>
+                <li><a href="services.html" class="menu-btn" data-key="nav_services">Services</a></li>
+                <li><a href="contact-us.html" class="menu-btn active" data-key="nav_contact">Contact Us</a></li>
             </ul>
             <button class="menu-btn hamburger-btn" type="button" aria-label="Open menu">
                 <i class="fas fa-bars"></i>
@@ -36,91 +37,18 @@
         </div>
     </nav>
 
+    <!-- Main Content Container -->
     <div class="container">
-        <div class="hero-wrapper">
-            <img class="truck" src="truck.jpg" alt="Sunland Trucking Fleet Truck">
-            <div class="hero-overlay-text">
-                <h2 data-key="hero_overlay">Driven by Trust, Powered by Experience</h2>
-            </div>
+    <section class="info-section">
+        <h2 data-key="contact_title">Contact Us</h2>
+        <div class="contact_us">
+            <p class="notice-title" data-key="contact_notice_title">Capacity & Inquiries Notice</p>
+            <p data-key="contact_p1">Thank you for your interest in partnering with Sunland Trucking LLC. We appreciate your consideration for your freight and logistics needs.</p>
+            <p data-key="contact_p2">Please note that our fleet capacity is currently fully committed, and we are not accepting new contracted loads or external freight scheduling at this time.</p>
+            <p data-key="contact_p3">We sincerely value your interest and support. Please check back with us in the future for updates on fleet availability and service expansions.</p>
         </div>
-
-        <div class="stats-grid">
-            <div class="stat-card">
-                <i class="fas fa-calendar-check"></i>
-                <h3>2017</h3>
-                <p data-key="stat_established">Established</p>
-            </div>
-            <div class="stat-card">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Phoenix, AZ</h3>
-                <p data-key="stat_hq">Headquarters</p>
-            </div>
-            <div class="stat-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>100%</h3>
-                <p data-key="stat_compliant">DOT Compliant</p>
-            </div>
-            <div class="stat-card">
-                <i class="fas fa-shipping-fast"></i>
-                <h3 data-key="stat_ontime">On-Time</h3>
-                <p data-key="stat_guarantee">Delivery Guarantee</p>
-            </div>
-        </div>
-        
-        <section class="info-section">
-            <h2 data-key="info_title">About Sunland Trucking LLC</h2>
-            <p data-key="info_desc">Sunland Trucking LLC was established in 2017. We are a premier commercial carrier based in Phoenix, Arizona, providing regional and long-haul transportation solutions with an emphasis on safety, punctuality, and client satisfaction.</p>
-        </section>
-
-        <section class="attributes-section">
-            <h3 data-key="partner_title">Why Partner With Us?</h3>
-            <div class="attributes-grid">
-                <div class="attribute-card">
-                    <div class="card-header">
-                        <i class="fas fa-clock"></i>
-                        <h4 data-key="attr1_title">Reliable</h4>
-                    </div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> <span data-key="attr1_sub1">Ensures on-time deliveries</span></li>
-                        <li><i class="fas fa-check"></i> <span data-key="attr1_sub2">Consistently meets client expectations</span></li>    
-                        <li><i class="fas fa-check"></i> <span data-key="attr1_sub3">Strong commitment to safety & compliance</span></li>    
-                    </ul>
-                </div>
-
-                <div class="attribute-card">
-                    <div class="card-header">
-                        <i class="fas fa-user-tie"></i>
-                        <h4 data-key="attr2_title">Experienced</h4>
-                    </div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> <span data-key="attr2_sub1">CDL-certified drivers with years of hauling experience</span></li>
-                        <li><i class="fas fa-check"></i> <span data-key="attr2_sub2">Commitment to safe driving practices</span></li>
-                        <li><i class="fas fa-check"></i> <span data-key="attr2_sub3">Expert route management & cargo handling</span></li>
-                    </ul>
-                </div>
-
-                <div class="attribute-card">
-                    <div class="card-header">
-                        <i class="fas fa-shield-virus"></i>
-                        <h4 data-key="attr3_title">Safe</h4>
-                    </div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> <span data-key="attr3_sub1">Adheres strictly to DOT regulations and industry standards</span></li>
-                        <li><i class="fas fa-check"></i> <span data-key="attr3_sub2">Routine vehicle inspections and preventative maintenance</span></li>
-                        <li><i class="fas fa-check"></i> <span data-key="attr3_sub3">Full cargo insurance and safety guarantees</span></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <div class="cta-banner">
-            <div class="cta-content">
-                <h3 data-key="cta_title">Need Reliable Freight Services?</h3>
-                <p data-key="cta_desc">Get in touch with our dispatch team today for immediate quotes and service scheduling.</p>
-            </div>
-            <a href="contact-us.html" class="cta-btn" data-key="cta_btn">Contact Us Today</a>
-        </div>
-    </div>
+    </section>
+</div>
 
     <script src="script.js"></script>
 </body>
