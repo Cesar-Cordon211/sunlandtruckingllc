@@ -1,37 +1,3 @@
-$(document).ready(function(){
-    // Sticky navbar & scroll-up button functionality
-    $(window).scroll(function(){
-        if(this.scrollY > 20){
-            $('.navbar').addClass("sticky");
-        } else {
-            $('.navbar').removeClass("sticky");
-        }
-        
-        if(this.scrollY > 300){
-            $('.scroll-up-btn').addClass("show");
-        } else {
-            $('.scroll-up-btn').removeClass("show");
-        }
-    });
-
-    // Scroll-up trigger
-    $('.scroll-up-btn').click(function(){
-        $('html').animate({scrollTop: 0});
-    });
-
-    // Mobile menu toggle
-    $('.hamburger-btn').click(function(){
-        $('.navbar .menu').toggleClass("active");
-        $('.hamburger-btn i').toggleClass("active");
-    });
-
-    // Close mobile menu on menu item click
-    $('.navbar .menu li a').click(function(){
-        $('.navbar .menu').removeClass("active");
-        $('.hamburger-btn i').removeClass("active");
-    });
-});
-
 const translations = {
     en: {
         nav_home: "Home",
@@ -41,7 +7,7 @@ const translations = {
         // Index Page
         info_title: "About Sunland Trucking",
         info_desc: "Established in 2017 in Phoenix, Arizona, Sunland Trucking LLC is a premier freight and logistics provider dedicated to supplying dependable regional and long-haul transportation solutions. Built on a foundation of operational efficiency, integrity, and safety, we specialize in delivering tailored logistics strategies that keep supply chains moving seamlessly across North America. Our commitment to excellence ensures that every load is handled with the utmost care, precision, and timeliness.",
-        
+
         attr1_title: "Reliability & Precision",
         attr1_sub1: "Proven track record for on-time pickup and delivery performance",
         attr1_sub2: "Proactive freight tracking and real-time communication protocols",
@@ -85,7 +51,7 @@ const translations = {
         // Index Page
         info_title: "Sobre Sunland Trucking LLC",
         info_desc: "Fundada en 2017 en Phoenix, Arizona, Sunland Trucking LLC es una empresa líder en transporte de carga y logística dedicada a ofrecer soluciones de transporte regional y de larga distancia confiables. Construida sobre una base de eficiencia operativa, integridad y seguridad, nos especializamos en brindar estrategias logísticas personalizadas que mantienen las cadenas de suministro funcionando sin problemas en toda América del Norte. Nuestro compromiso con la excelencia garantiza que cada carga se maneje con el máximo cuidado, precisión y puntualidad.",
-        
+
         attr1_title: "Confiabilidad y Precisión",
         attr1_sub1: "Historial comprobado de entregas y recogidas puntuales",
         attr1_sub2: "Rastreo proactivo de carga y comunicación en tiempo real",
@@ -101,7 +67,7 @@ const translations = {
         attr3_sub2: "Programas rigurosos de mantenimiento preventivo para la flota",
         attr3_sub3: "Protocolos de seguridad para proteger la carga, conductores y el público",
 
-        // Service Page 
+        // Services Page
         hero_overlay: "Impulsados por la Confianza, Respaldados por la Experiencia",
         stat_established: "Fundada",
         stat_hq: "Sede Principal",
@@ -122,10 +88,12 @@ const translations = {
     }
 };
 
+// GLOBAL LANGUAGE SWITCHER
 function setLanguage(lang) {
+    // Store language choice globally across all pages
     localStorage.setItem("lang", lang);
 
-    // Text content
+    // Translate all elements with data-key attribute
     document.querySelectorAll("[data-key]").forEach(el => {
         const key = el.getAttribute("data-key");
         if (translations[lang] && translations[lang][key]) {
@@ -133,42 +101,67 @@ function setLanguage(lang) {
         }
     });
 
-    // Active state on buttons
+    // Update active button highlights
     document.querySelectorAll(".lang-switch button").forEach(btn => {
         btn.classList.remove("active-lang");
     });
-    const activeBtn = document.querySelector(`.lang-switch button[onclick="setLanguage('${lang}')"]`);
-    if (activeBtn) {
-        activeBtn.classList.add("active-lang");
-    }
+
+    const activeBtns = document.querySelectorAll(
+        `.lang-switch button[onclick="setLanguage('${lang}')"]`
+    );
+    activeBtns.forEach(btn => btn.classList.add("active-lang"));
 }
 
-// Initialize interface on load
-$(document.ready).ready(function() {
+// RUN IMMEDIATELY ON EVERY PAGE LOAD
+(function initLanguage() {
     const savedLang = localStorage.getItem("lang") || "en";
-    setLanguage(savedLang);
+    
+    // Wait until DOM is available if running synchronously
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => setLanguage(savedLang));
+    } else {
+        setLanguage(savedLang);
+    }
+})();
 
-    // Navbar & Scroll-Up Button interactions
+$(document).ready(function() {
+
+    // Sticky Navbar + Scroll-Up Button
     $(window).scroll(function() {
         if (this.scrollY > 20) {
             $('.navbar').addClass("sticky");
         } else {
             $('.navbar').removeClass("sticky");
         }
-        
-        if (this.scrollY > 500) {
+
+        if (this.scrollY > 300) {
             $('.scroll-up-btn').addClass("show");
         } else {
             $('.scroll-up-btn').removeClass("show");
         }
     });
 
-    $('.scroll-up-btn').click(function() {
-        $('html').animate({scrollTop: 0});
+    // Scroll Back To Top
+    $('.scroll-up-btn').click(function() {$('html, body').animate({
+            scrollTop: 0
+        }, 500);
     });
 
-    $('.hamburger-btn').click(function() {
-        $('.navbar .menu').toggleClass("active");
-        $('.hamburger-btn i').toggleClass("active");
+    // Mobile Hamburger Menu Toggle
+    $('.hamburger-btn').on('click', function(e) {
+        e.preventDefault();
+        $('.navbar .menu').toggleClass('active');$(this).find('i').toggleClass('active');
+    });
+
+    // Close Mobile Menu When Link Is Selected
+    $('.navbar .menu li a').click(function() {$('.navbar .menu').removeClass("active");
+        $('.hamburger-btn i').removeClass("active");
+    });
+
+    // Close Mobile Menu If Window Resizes to Desktop
+    $(window).resize(function() {
+        if ($(window).width() > 947) {$('.navbar .menu').removeClass("active");
+            $('.hamburger-btn i').removeClass("active");
+        }
     });
 });
