@@ -5,7 +5,7 @@ const translations = {
         nav_contact: "Contact Us",
 
         // Index Page
-        info_title: "About Sunland Trucking",
+        info_title: "About Sunland Trucking LLC",
         info_desc: "Established in 2017 in Phoenix, Arizona, Sunland Trucking LLC is a premier freight and logistics provider dedicated to supplying dependable regional and long-haul transportation solutions. Built on a foundation of operational efficiency, integrity, and safety, we specialize in delivering tailored logistics strategies that keep supply chains moving seamlessly across North America. Our commitment to excellence ensures that every load is handled with the utmost care, precision, and timeliness.",
 
         attr1_title: "Reliability & Precision",
